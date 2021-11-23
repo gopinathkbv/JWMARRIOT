@@ -26,11 +26,11 @@ class USBDriveTestApp(App):
 
     def detect_usb(self, *args):
         # for p in Path('/Volumes').iterdir():  # you will need to change the path to match the raspberry pi
-        drive_names = [p.name for p in Path('/Volumes').iterdir()]
-        if 'RANDOMFILES' in drive_names:  # the name of the USB stick is RANDOMFILES, change to match your usb drive name
+        drive_names = [p.name for p in Path('/media/pi').iterdir()]
+        if 'SHEKER' in drive_names:  # the name of the USB stick is RANDOMFILES, change to match your usb drive name
             print('drive detected')
             if not self.text_file_read:  # to prevent repeatidly reading the file
-                with open('/Volumes/RANDOMFILES/text/note.txt') as f:
+                with open('/media/pi/JWF/note.txt') as f:
                     self.root.ids.label.text = f.read()
                     print('File Read')
                     self.text_file_read = True
